@@ -1,30 +1,62 @@
-var cart = [];
+var cart = {bananas: 17, carrots: 5, apple: 6};
 
-function getCart() {
- return cart;
-}
-
-function setCart(c) {
-  cart = c;
+function getCart(){
   return cart;
 }
 
-function addToCart(item) {
- // write your code here
-}
+// function viewCart() {
+//   var cartObj = getCart();
+//   var keyArr = Object.keys(cartObj);
+//   if(keyArr.length < 1){
+//     console.log("Your shopping cart is empty.");
+//   }
+//   if(keyArr.length > 0){
+//       var contents = "In your cart, you have";
+//         for(var i = 0; i < keyArr.length - 1; i++){
+//           contents += ` ${keyArr[i]} at $${cartObj[keyArr[i]]},`;
+//         } for(var j = keyArr.length-1; j < keyArr.length; j++){
+//             contents += ` and ${keyArr[j]} at $${cartObj[keyArr[j]]}.`;
+//         }
+//         console.log(contents);
+//   }
+// }
+
 
 function viewCart() {
-  // write your code here
+  getCart();
+  var arr = [];
+  console.log(arr);
+  var keyArr = [];
+  if(Object.keys(getCart()).length > 0){
+  for(var c = 0; c < Object.keys(getCart()).length; c++){
+    arr.push(Object.keys(getCart())[c]);
+  }
 }
-
-function total() {
-  // write your code here
-}
-
-function removeFromCart(item) {
-  // write your code here
-}
-
-function placeOrder(cardNumber) {
-  // write your code here
+  for(var a = 0; a < arr.length; a++){
+    keyArr.push(Object.keys(getCart()[a]))
+  }
+  if(keyArr.length < 1){
+    console.log("Your shopping cart is empty.");
+  }
+  if(keyArr.length === 1){
+    console.log(`In your cart, you have ${keyArr[0]} at $${getCart()[0][keyArr[0]]}.`)
+  }
+  if(keyArr.length === 2){
+      var contents2 = "In your cart, you have";
+        for(var p = 0; p < keyArr.length - 1; p++){
+          contents2 += ` ${keyArr[p]} at $${getCart()[p][keyArr[p]]}`;
+        } for(var q = keyArr.length-1; q < keyArr.length; q++){
+            contents2 += ` and ${keyArr[q]} at $${getCart()[p][keyArr[q]]}.`;
+            console.log(contents2);
+        }
+      }
+  if(keyArr.length > 2){
+      var contents = "In your cart, you have";
+        for(var i = 0; i < keyArr.length - 1; i++){
+          contents += ` ${keyArr[i]} at $${getCart()[i][keyArr[i]]},`;
+        } for(var j = keyArr.length-1; j < keyArr.length; j++){
+            contents += ` and ${keyArr[j]} at $${getCart()[i][keyArr[j]]}.`;
+        }
+        console.log(contents);
+  }
 }
